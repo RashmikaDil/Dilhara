@@ -19,9 +19,7 @@ return (
        </a>
        
          </div>
-         <div className="flex justify-center items-center text-2xl p-2 gap-4 mt-4">
-         
-         </div>
+    
 
     
     </>

@@ -1,39 +1,64 @@
-import bg from './img/bg.jpg'
+import bg from './img/bg.png'
 import './App.css'
-import TypingAnimation from './components/TypingAnimation'
-import SocialMediaBar from './components/ScocialMediaBar';
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressBook, faHome } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import Home from './components/Home';
+import Contact from './components/Contact';
 function App() {
-  const messages = [
-    "Full Stack Developer!",
-    "CSS + HTML & JS ",
-    "React + Tailwind",
-    "Node.js + Express & Mongoose",
-    "Let's build something cool!"
-  ];
 
+
+  const [menu , setMenu] = useState(1);
+  
   return (
     <>
-      <div className="w-full h-screen flex items-center justify-center bg-cover" style={{
+    
+      <div className="w-full h-screen flex items-center justify-center bg-cover bg-center" style={{
         backgroundImage: `url(${bg})`,
       }}>
 
-<div className='bg-gradient-to-bl from-primary/95 to-bg/95 w-full h-screen text-text flex items-center justify-center flex-col'>
-<h1 className='text-8xl font-extrabold '>Hello !</h1>
-<p className='text-4xl'>I am Rashmika</p>
-<hr className='w-1/4 my-4 border-t-2 border-text' />
-
-<TypingAnimation texts={messages} speed={100} pause={1000}></TypingAnimation>
-
-<SocialMediaBar></SocialMediaBar>
+{menu === 1 ? <Home></Home> :   menu === 2 ? <Contact></Contact> : <h1>Loading...</h1>}
 
 
- </div>
+<div className='fixed bottom-0 text-gray-500 text-xs mt-2'>©
+ 2023 Rashmika Dilhara</div>
+<div className=' fixed bottom-0 p-10 flex gap-1 '>
+ 
 
 
 
 
-      </div>
+
+
+
+
+<div onClick={() => setMenu(1)} className='w-20 h-20 relative  flex items-center justify-center hover:opacity-50 cursor-pointer '>
+ <FontAwesomeIcon icon={faHome} onClick={() => setMenu(1)} className={`text-2xl cursor-pointer  ${menu===1 ? "text-yellow-500" : "text-yellow-200" }`}></FontAwesomeIcon>
+  
+  
+</div>
+
+
+<div onClick={() => setMenu(2)} className=' w-20 h-20 relative  flex items-center justify-center  hover:opacity-50 cursor-pointer rounded-t-3xl'>
+ <FontAwesomeIcon icon={faAddressBook} onClick={() => setMenu(2)}  className={`text-2xl cursor-pointer  ${menu===2 ? "text-yellow-500" : "text-yellow-200" }`}></FontAwesomeIcon>
+  
+  
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+     
+
+      
+
     </>
   )
 }
