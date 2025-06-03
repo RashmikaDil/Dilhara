@@ -23,7 +23,7 @@ function App() {
 
 
 <div className='fixed bottom-0 text-gray-500 text-xs mt-2'>©
- 2023 Rashmika Dilhara</div>
+ 2025 Rashmika Dilhara</div>
 <div className=' fixed bottom-0 p-10 flex gap-1 '>
  
 
